@@ -58,6 +58,13 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               TextField(
                 controller: searchController,
+                onSubmitted: (_) {
+                  final searchQuery = searchController.text;
+                  if (isNullOrBlank(searchQuery)) {
+                    return showSnackBar('Please enter a valid search term!');
+                  }
+                  _updateDrinks(searchQuery);
+                },
                 decoration: InputDecoration(
                   hintText: 'Search for drinks...',
                   suffix: IconButton(
