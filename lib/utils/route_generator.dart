@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:ailoitte_assessment/screens/drink_details_screen.dart';
 import 'package:ailoitte_assessment/screens/home_screen.dart';
 import 'package:ailoitte_assessment/screens/splash_screen.dart';
 import 'package:ailoitte_assessment/utils/logger.dart';
+import 'package:flutter/material.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -12,6 +13,8 @@ class RouteGenerator {
         return _route(const SplashScreen());
       case HomeScreen.id:
         return _route(const HomeScreen());
+      case DrinkDetailsScreen.id:
+        return _route(DrinkDetailsScreen(drink: args));
       default:
         return _errorRoute(settings.name);
     }
